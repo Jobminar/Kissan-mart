@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="tittle-container">
+        <div><a href=""><img src="assets\solar_arrow-up-linear.png"></a>
+        </div>
+        <div><img src="assets\Group 44(1).jpg" id="vegetables-logo">
+        </div>
+          <div>  <h2 id="tittle"> Fresh Fruits</h2></div>
+    </div>
+    <div>
+        <div id="scearch">
+         <form>
+             <input type="text" [(ngModel)]="term" id="scearch-input">
+             <img src="assets\cil_search.png" id="scearch-logo">
+         </form>
+      </div>
+    </div>
+    <div style="width: 100px;height: 3.75rem;">
+
+    </div>
+    <div id="main-frame">
+        <div>
+                <div *ngFor="let category of categories" class="image-container">
+                    <img [src]="category.src" [alt]="category.alt">
+                    
+                </div>
+        </div>
+        <div class="items-continer">
+            
+            <div *ngFor="let product of productItems" class="itemss">
+                <img [src]="product.src" [alt]="product.alt">
+                <div class="name-product">{{product.name}}</div>
+               <div class="price-containers"> 
+                <div class="price-tag">{{ product.price.toFixed(2) }}</div>
+                <div class="button-container">
+                  <button type="submit" (click)="decreaseCount(product)">-</button>
+                  <span>{{ product.count }}kg</span>
+                  <button type="submit" (click)="increaseCount(product)">+</button>
+                </div>
+               </div>
+                <button type="submit" (click)="changeColor(product)" [style.background]="product.button.buttonColor" class="add-button">{{product.button.buttonText}}</button>
+              </div>
+         </div>     
+              
+   
+    
+   
+</div>
+

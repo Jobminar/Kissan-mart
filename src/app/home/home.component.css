@@ -1,0 +1,79 @@
+.container
+{
+    margin: 1.125rem;
+}
+.logo
+{
+    width: 4.688rem;
+    height: 4.625rem;
+    margin-top:1.25rem;
+    
+}
+#logo-container
+{
+    display: flex;
+}
+#tittle
+{
+    text-align: center;
+    padding-top: 0.625rem;
+    padding-left: 0.625rem;
+}
+#scearch{
+    position: absolute;
+    margin-top: 0.5rem;
+}
+#scearch-logo {
+    padding: 0.625rem;
+  
+    width: 1.438rem;
+    height: 1.438rem;
+    text-align: center;
+    position: relative;
+    left: 18.75rem;
+}
+ 
+#scearch-input {
+    width: 20.188rem;
+    padding: 0.625rem;
+    text-align: center;
+    border-radius: 1.313rem;
+    position: absolute;
+}
+#ads
+{
+    margin-top: 10.938rem;
+}
+.category
+{
+    display: flex;
+    justify-content: space-between;
+}
+.category p{
+    font-family: 'Inter';
+    font-size:1rem;
+    text-align: center;
+    margin-top: 0.9rem;
+}
+.wrapper
+{
+    display: flex;
+    grid-gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+.wrapper::-webkit-scrollbar{
+    display: none;
+}
+.slider
+{
+   
+    justify-content: center;
+    scroll-snap-align:start;
+}
+.offer-container
+{
+    margin-top: -1rem;
+}

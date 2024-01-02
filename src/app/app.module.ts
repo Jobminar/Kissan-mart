@@ -1,16 +1,24 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserModule ,HammerModule} from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { FreshVegetablesComponent } from './fresh-vegetables/fresh-vegetables.component';
+import { FreshFruitsComponent } from './fresh-fruits/fresh-fruits.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    FreshVegetablesComponent,
+    FreshFruitsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HammerModule,
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

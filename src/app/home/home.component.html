@@ -1,0 +1,60 @@
+<div class="container">
+    <div id="logo-container">
+        <div >
+        <img src="assets\WhatsApp Image 2023-11-03 at 12.39 3.jpg" class="logo">
+        </div>
+        <div id="tittle"> <h1>Kissan Mart</h1></div>  
+    </div>
+     <div>
+           <div id="scearch">
+            <form>
+                <input type="text" [(ngModel)]="term" id="scearch-input">
+                <img src="assets\cil_search.png" id="scearch-logo">
+            </form>
+         </div>
+        </div>
+    <div style="width: 100px;height: 3.75rem;">
+
+    </div>
+    <div class="ads">
+        <img src="assets\Rectangle 2.jpg">
+    </div>
+    <div class="category-container">
+        <h1 style=" font-family: 'Inter';font-size: 1.375rem;">Shop by category</h1>
+        <div class="category">
+            <div id="vegetables"><img src="assets\Rectangle 4.png" (click)="navgateToFreshVegetables()" >
+                <p >Fresh vegetables</p>
+            </div>
+            <div id="fruits"><img src="assets\Rectangle 5.png" (click)="navigateToDestination()">
+                <p >Fresh fruits</p>
+            </div>
+        </div>
+    </div>
+    <div id="offer-container">
+        <h1 style=" font-family: 'Roboto', sans-serif;font-size: 1.375rem;">Offer zone
+        <img src="assets\bxs_offer.png" ></h1>
+        <div class="wrapper">
+            <div class="slider"><img src="assets\Rectangle 5.png">
+                <br>
+                <h5>hhhh</h5>
+            </div>
+            <div class="slider"><img src="assets\Rectangle 5.png"></div>
+            <div class="slider"><img src="assets\Rectangle 5.png"></div>
+            <div class="slider"><img src="assets\Rectangle 5.png"></div>
+            <div class="slider"><img src="assets\Rectangle 5.png"></div>
+        </div>
+    </div>  
+    <div class="pickup-continer">
+        <h1 style=" font-family: 'Roboto', sans-serif;font-size: 1.375rem;">Quick picks for you</h1>
+        <div class="wrapper">
+            <div class="slider"><img src="assets\Rectangle 5.png">
+                <br>
+                <h5>hhhh</h5>
+            </div>
+            <div class="slider"><img src="assets\Rectangle 5.png"></div>
+            <div class="slider"><img src="assets\Rectangle 5.png"></div>
+            <div class="slider"><img src="assets\Rectangle 5.png"></div>
+            <div class="slider"><img src="assets\Rectangle 5.png"></div>
+        </div>
+    </div>
+</div>
