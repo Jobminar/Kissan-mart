@@ -1,0 +1,26 @@
+
+<div class="containerrr">
+   
+    <div class="container1">
+        <div class="content">
+            <div><strong id="tittle">KISSAN MART</strong></div>
+            <div class="image-div"> <img src="assets\WhatsApp Image 2023-11-03 at 12.39 3.jpg" class="image1"></div>
+            <span class="confirm-tittle">Confirm password</span>
+        
+                <div class="input-continer">
+                    <form #ngForm="ngForm" (ngSubmit)="verify()">
+                        <input type="password" id="confirmPasword" name="confirmPasword"
+                        [(ngModel)]="confirmPasword"  class="confirmPasword">
+                        <div>
+                            <div *ngIf="statuss">
+                                <p class="confirm" >**confirmPasword was not martch with password</p>
+                            </div>
+                            <button type="submit" class="VERIFY" (click)="verify()">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+        </div> 
+
+    </div>
+    <div class="last"><img src="assets\home\Ellipse 8 (1).png"></div>
+</div>

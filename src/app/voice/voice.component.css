@@ -1,0 +1,41 @@
+@media screen and (min-width: 360px) and (max-width: 600px) {
+    .tittle-container
+    {
+        margin-top: 2rem;
+        display: flex;
+    ;
+    }
+    #tittle
+    {
+        font-family: 'inter';
+        font-weight: 600;
+        font-size: 1.125rem;
+        line-height: 1.313rem;
+       margin-top: 0.2rem;
+        margin-left: 0.5rem;
+    }
+.container{
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    margin: 0;
+  }
+  
+  #app {
+    position: sticky;
+    top: 90%;
+    text-align: center;
+  }
+  
+  #status {
+    margin-top: 10px;
+    color: green;
+  }
+  .voiccee
+  {
+    width: 20%;
+    height: 20%;
+  }
+}

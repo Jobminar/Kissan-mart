@@ -1,0 +1,34 @@
+ <div class="container">
+    <div class="tittle-container">
+        <div><a (click)="goToPreviousPage()"><img src="assets\solar_arrow-up-linear.png"></a>
+        </div>
+        <div class="logo-div"><img src="assets\profile\iconamoon_profile.png" id="logo">
+        </div>
+        <div>  <p id="tittle"> Profile</p></div>
+    </div>
+    <div class="details-section">
+        <div><i class="fa fa-phone">&nbsp;<span> Ph.no : </span>&nbsp;</i>&nbsp;</div>
+        <div><input type="number"></div>&nbsp;
+        <div class="Edit">
+            <a href="/" class="edit-link"><img src="assets\profile\8666681_edit_icon.png" class="edit-ion">&nbsp;Edit</a>
+        </div>
+    </div>
+    <hr>
+    <div class="details-section">
+        <div><i class="fa fa-envelope">&nbsp;<span>Mail ID</span> &nbsp;</i></div>
+        <div><input type="mail"></div> &nbsp;   
+        <div class="Edit">
+            <a href="/" class="edit-link"><img src="assets\profile\8666681_edit_icon.png" class="edit-ion">&nbsp;Edit</a>
+        </div>
+    </div>
+    <div style="height: 5rem;"></div>
+    <div *ngFor="let slide of Slides">
+        <div class="slide">
+            <div> <button type="button" (click)="navTo(slide)"><span>{{slide.title}}</span></button></div>
+            <div> <img [src]="slide.src"></div>
+        </div>
+        
+        <hr>
+        <br>
+        </div>
+</div>

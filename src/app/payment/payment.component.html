@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="tittle-container">
+        <div class="arrow"><a (click)="goToPreviousPage()"><img src="assets\solar_arrow-up-linear.png"></a>
+        </div>
+      
+          <div>  <h2 id="tittle"> Payment Options</h2></div>
+    </div>
+    <p class="method-tittle">Payment methods</p>
+        <div class="payment-container" *ngFor="let method of methods">
+        
+      
+            <div class="methods">
+                <div class="dum">
+                    <div class="phonepe"> <img [src]="method.src"></div>
+                        <div><p>{{method.tittle}}</p></div>
+                </div>
+                <div class="buttons">
+                    <input type="checkbox" name="SelectOne" (change)="onCheckboxChange(method)">
+                </div>
+                
+            </div>
+            <ng-container *ngIf="method.status;else ElseBlock">
+                <div class="button-pay">
+                    <button type="button">PROCEED TO PAY : {{grandTotal}} </button>
+                </div>
+            </ng-container>
+            <ng-template #ElseBlock>
+                <div class="button-pay">
+                    
+                </div>
+            </ng-template>
+    </div>
+    <div class="cards">
+        <button type="button"><p>+ Add New UPI</p></button>  
+     </div>
+    <p class="method-tittle">Credits and Debit cards</p>
+    <div class="cards">
+       <button type="button"><p>+ Add New Card</p></button>  
+    </div>
+</div>

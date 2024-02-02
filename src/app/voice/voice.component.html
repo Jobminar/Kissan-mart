@@ -1,0 +1,22 @@
+<div class="tittle-container">
+    <div><a (click)="goToPreviousPage()"><img src="assets\solar_arrow-up-linear.png"></a>
+    </div>
+
+    <div>  <h2 id="tittle">Voice</h2></div>
+</div>
+<div class="container">
+    
+    <div id="app">
+      
+      <audio #audioPlayer controls></audio>
+      <div id="status">{{ status }}</div>
+      <!-- <button (click)="startRecording()" [disabled]="startRecordDisabled">Start Recording</button>
+      <button (click)="stopRecording()" [disabled]="stopRecordDisabled">Stop Recording</button>
+     -->
+     <div *ngIf="count%2===0;else elseBlock"><img src="assets\fotter\Voice order.png"  class="voiccee" (click)="record()"/></div>
+    </div>
+    <ng-template #elseBlock>
+        <img src="assets\home\stop.jpg"  class="voiccee" (click)="record()"/>
+    </ng-template>
+    <!-- <div><i class="fa fa-microphone" style="font-size:36px;color: green;" class="voiccee" (click)="record()"></i></div> -->
+  </div>

@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="container1">
+      <div class="content">
+        <div><strong id="tittle">KISSAN MART</strong></div>
+        <div id="logo"> <img src="assets\profile\WhatsApp Image 2023-11-03 at 12.39 3.png"></div>
+        <div><span id="title2">Enter your Phone Number</span><br></div>
+      </div>
+      <div class="input-continer">
+        <form [formGroup]="loginForm" (ngSubmit)="details()">
+          <div>
+            <fieldset class="line">
+              <legend>Phone no</legend>
+              <div class="number-input"> 
+                <div><p>+91</p></div>&nbsp;
+                <div>
+                  <!-- Use form control from FormGroup -->
+                  <input type="number" pattern=".{10,10}" title="please enter valid mobile number"
+                    id="phoneno" name="phoneno" formControlName="phoneno" class="input-box">
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="second">
+              <legend>Password</legend>
+              <!-- Use form control from FormGroup -->
+              <input type="password" name="password" id="password" formControlName="password" required class="input-box">
+            </fieldset>
+          </div>
+          <ng-container *ngIf="status;">
+            <div>
+              <p style="color: red;">*phone no or password is invalid</p>
+            </div>
+          </ng-container>
+          <button type="submit" class="submit-button">Log In</button>
+        </form>
+        <div class="signUp-link"><span>Don't have an account?</span><a  (click)="navToProfile()" class="sign-link"> signup</a></div>
+      </div>
+    </div>
+    <div class="last"><img src="assets\home\Ellipse 8 (1).png"></div>
+  </div>
+  
