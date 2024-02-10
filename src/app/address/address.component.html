@@ -1,6 +1,6 @@
 <div class="container">
     <div class="tittle-container">
-        <div id="a"><a (click)="goToPreviousPage()"><img src="assets\solar_arrow-up-linear.png"></a>
+        <div class="a"><a (click)="goToPreviousPage()"><img src="assets\solar_arrow-up-linear.png"></a>
         </div>
         <div class="icon-container"> <i class="material-icons" id="icon">location_on</i>
         </div>
@@ -8,14 +8,15 @@
     </div>
 
     <div *ngFor="let address of newAddress" >
-        <div class="add-main" (click)="sendAddress(address)">
+        <div class="add-main"  (click)="sendAddress(address)">
            <div>
-                <h4 class="Address-tittle"><div class="title-identity"></div>{{address.tittle}}</h4>
-                  <p>{{address.House_no}}, {{address.block}}-block, {{address.appartment}} appartment, {{address.address}},
+                <h4 class="Address-tittle"><div class="title-identity"></div>{{address.Type}}</h4>
+                  <p>{{address.area}}, {{address.address}},
                     {{address.city}},{{address.state}}, {{address.country}}, {{address.pincode}}</p>
             </div>
             <div class="Edit">
                 <a  class="edit-link" (click)="edit(address)"><img src="assets\profile\8666681_edit_icon.png" class="edit-ion">&nbsp;Edit</a>
+                <i class="fa fa-trash" id="delete" aria-hidden="true" (click)="deletes(address)">delete</i>
             </div>
 
         </div>

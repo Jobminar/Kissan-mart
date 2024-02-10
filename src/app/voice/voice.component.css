@@ -28,7 +28,12 @@
     top: 90%;
     text-align: center;
   }
-  
+  .sub-container
+  {
+    height: 100%;
+    margin-top: 9%;
+ 
+  }
   #status {
     margin-top: 10px;
     color: green;
@@ -37,5 +42,7 @@
   {
     width: 20%;
     height: 20%;
+   
+    border-radius: 50%;
   }
 }

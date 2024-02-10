@@ -52,13 +52,30 @@
     justify-content: space-between;
     margin-left: 1rem;
     margin-left: 1 rem;
+    margin-top: 1rem;
     
+}
+.sub-container-image
+{
+    width: 3.2rem;
+    height: 2.8rem;
+   
+}
+.sub-container-image img{
+    height: 100%;
+    width: 100%;
+}
+#pays
+{
+   
+    margin: 0;
+    margin-left: 1rem;
 }
 .details
 {
     border: 0.01rem  solid  #B6B6B6;
     border-radius: 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: 0rem;
     box-shadow: 1px -1px 7px rgba(0, 0, 0, 0.03);
 }
 .icons{

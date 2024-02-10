@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-interface MarkerProperties {
+import { NavigationService } from '../navigation.service';
+
+  interface MarkerProperties {
   position: {
     lat: number;
     lng: number;
@@ -13,9 +15,9 @@ interface MarkerProperties {
   styleUrls: ['./office-location.component.css']
 })
 export class OfficeLocationComponent implements OnInit {
-  constructor() {}
+  constructor(private navigator:NavigationService) {}
   ngOnInit(): void {
-   
+    this.navigator.setupBackButtonListener();
   }
 
   center: google.maps.LatLngLiteral = {

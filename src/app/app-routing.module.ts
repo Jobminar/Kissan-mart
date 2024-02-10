@@ -18,8 +18,11 @@ import { NewAddressComponent } from './new-address/new-address.component';
 import { LeafyVegetablesComponent } from './leafy-vegetables/leafy-vegetables.component';
 import { OrderconfirmComponent } from './orderconfirm/orderconfirm.component';
 import { EditComponent } from './edit/edit.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { VoiceComponent } from './voice/voice.component';
+import { PolicyComponent } from './policy/policy.component';
+import { ScearchComponent } from './scearch/scearch.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'src/app/fresh-fruits.html', component: FreshFruitsComponent },
@@ -42,7 +45,10 @@ const routes: Routes = [
   {path:'src/app/leafy-vegetables',component:LeafyVegetablesComponent},
   {path :'src/app/orderconfirm',component:OrderconfirmComponent},
   {path :'src/app/edit',component:EditComponent},
-  {path: 'src/app/Voice',component:VoiceComponent}
+  {path:'src/app/edit-profile',component:EditProfileComponent},
+  {path: 'src/app/Voice',component:VoiceComponent},
+  {path:'src/app/policy',component:PolicyComponent},
+  {path:'src/app/scearch',component:ScearchComponent}
 ];
 
 @NgModule({

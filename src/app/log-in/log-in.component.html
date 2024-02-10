@@ -7,7 +7,7 @@
       </div>
       <div class="input-continer">
         <form [formGroup]="loginForm" (ngSubmit)="details()">
-          <div>
+          <div class="logIn-div">
             <fieldset class="line">
               <legend>Phone no</legend>
               <div class="number-input"> 
@@ -15,17 +15,17 @@
                 <div>
                   <!-- Use form control from FormGroup -->
                   <input type="number" pattern=".{10,10}" title="please enter valid mobile number"
-                    id="phoneno" name="phoneno" formControlName="phoneno" class="input-box">
+                    id="phoneno" name="phoneno" formControlName="phoneno" class="input-box1" >
                 </div>
               </div>
             </fieldset>
             <fieldset class="second">
               <legend>Password</legend>
               <!-- Use form control from FormGroup -->
-              <input type="password" name="password" id="password" formControlName="password" required class="input-box">
+              <input type="password" name="password" id="password" formControlName="password" required class="input-box1">
             </fieldset>
           </div>
-          <ng-container *ngIf="status;">
+          <ng-container *ngIf=status;>
             <div>
               <p style="color: red;">*phone no or password is invalid</p>
             </div>
@@ -33,6 +33,8 @@
           <button type="submit" class="submit-button">Log In</button>
         </form>
         <div class="signUp-link"><span>Don't have an account?</span><a  (click)="navToProfile()" class="sign-link"> signup</a></div>
+        <div class="signUp-link"><a class="sign-link">forgot password?</a></div>
+        <div *ngIf="isLoading" class="loading-spinner">Loading...</div>
       </div>
     </div>
     <div class="last"><img src="assets\home\Ellipse 8 (1).png"></div>

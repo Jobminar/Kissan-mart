@@ -2,6 +2,7 @@ import { Component,OnInit} from '@angular/core';
 import { Location } from '@angular/common';
 import { DataTransferService } from '../data-transfer.service';
 import { Router } from '@angular/router';
+import { NavigationService } from '../navigation.service';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -11,10 +12,19 @@ export class PaymentComponent implements OnInit{
   phonepe:boolean=false;
   grandTotal:number=0;
   
+  ngOnInit(): void {
+    if (this.isPaymentDone) {
+      this.navigateToConfirm();
+    }
+    this.navigator.setupBackButtonListener();
+  }
   constructor(private location: Location,
-    private payments:DataTransferService,
-    private sharedDataService:DataTransferService,
-    private router:Router){
+              private payments:DataTransferService,
+              private sharedDataService:DataTransferService,
+              private router:Router,
+              private navigator:NavigationService
+              )
+              {
     console.log(this.methods.status);
     this.grandTotal=sharedDataService.getgrandTotalPrice()
   }
@@ -72,9 +82,5 @@ export class PaymentComponent implements OnInit{
   {
     this.router.navigate(['src/app/orderconfirm'])
   }
-  ngOnInit(): void {
-      if (this.isPaymentDone) {
-        this.navigateToConfirm();
-      }
-  }
+  
 }

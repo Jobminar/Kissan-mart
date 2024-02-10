@@ -4,12 +4,18 @@ import { DataTransferService } from '../data-transfer.service';
 import { Location } from '@angular/common';
 import { FotterComponent } from '../fotter/fotter.component';
 import { VegetablesService } from '../vegetables.service';
+import Swal from 'sweetalert2';
+import { NavigationService } from '../navigation.service';
+
 @Component({
   selector: 'app-fresh-vegetables',
   templateUrl: './fresh-vegetables.component.html',
   styleUrls: ['./fresh-vegetables.component.css']
 })
 export class FreshVegetablesComponent implements OnInit{
+
+
+  logInStatus:boolean=false;
   inventoryData: any;
   ngOnInit(): void {
     // this.fotter.countingCart();
@@ -19,11 +25,13 @@ export class FreshVegetablesComponent implements OnInit{
       this.vegetablesService.formatData(data);
       this.vegetablesService.assigningToCat();
     });
+    this.navigator.setupBackButtonListener()
   }
   constructor(private router: Router,
-    private sharedDataService:DataTransferService,
-    private location: Location,
-    private vegetablesService:VegetablesService) { 
+              private sharedDataService:DataTransferService,
+              private location: Location,
+              private vegetablesService:VegetablesService,
+              private navigator:NavigationService) { 
       
     }
   @ViewChild('fotter') fotter!: FotterComponent;
@@ -44,13 +52,16 @@ searchTerm:any = '';
 cat:any=""
 
   filterProducts(): void {
-   
-    const filteredProducts = this.categories.flatMap(category => category.products)
-    .filter(product => product && product.name && product.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
-
-
-    this.productItems=filteredProducts
-    console.log(filteredProducts);
+    const filteredProducts = this.categories
+  .filter(category => category.category === 'freshVegitables'|| category.category==='additionals'|| category.category==='leafyVegetables') // Filter only the category named 'fruits'
+  .flatMap(category => category.products) // Flatten the array of products
+  .filter(product => 
+    product && 
+    product.itemname && 
+    product.itemname.toLowerCase().includes(this.searchTerm.toLowerCase()) // Filter products by item name
+  );
+  this.productItems=filteredProducts
+ 
 }
 //scearch button en
 
@@ -60,8 +71,8 @@ buttonText:string='Add to Basket';
 originalText='Remove';
 changeColor(product: any) {
   const button = product.button;
-  button.buttonColor = button.buttonColor === button.originalColor ? '#00853E' : button.originalColor;
-  button.buttonText = button.buttonText === button.originalText ? 'Add to Basket' : button.originalText;
+  button.buttonColor = button.buttonColor === button.originalColor ? '#00853E' :'#00853E';
+  button.buttonText = button.buttonText === button.originalText ? 'Add to Basket' : 'Add to Basket';
   this.fotter.countingCartVegetables( this.itemIns);
   const index=product
   this.vegetablesService.productsItems=this.productItems
@@ -110,17 +121,17 @@ showAlert = true;
   addItemss:boolean=false;
   addingItems(product:any)
   {
-    if (product.button.buttonText=='Add to Basket') {
-      this.sharedDataService.setSharedArrayVegetable(product,product.button.buttonText)
-      let index=this.itemArray.indexOf(product)
-      this.itemArray.splice(index,1);
-      this.itemIns--;
-      this.addItemss=false;
-      this.sharedDataService.addItemsCount(this.addItemss)
-      this.fotter.countingCart();
+    // if (product.button.buttonText=='Add to Basket') {
+    //   this.sharedDataService.setSharedArrayVegetable(product,product.button.buttonText)
+    //   let index=this.itemArray.indexOf(product)
+    //   this.itemArray.splice(index,1);
+    //   this.itemIns--;
+    //   this.addItemss=false;
+    //   this.sharedDataService.addItemsCount(this.addItemss)
+    //   this.fotter.countingCart();
        
-    } 
-    if(product.button.buttonText=='Remove')
+    // } 
+    if(product.button.buttonText=='Add to Basket')
     {
      
       
@@ -131,10 +142,32 @@ showAlert = true;
         this.addItemss=true;
         this.sharedDataService.addItemsCount(this.addItemss)
         this.fotter.countingCart();
+        this.logInStatus=this.sharedDataService.logInStatus;
+      
+        console.log("log in status",this.logInStatus)
+        this.hideLogInAlert()
+
+        
+     
     }
    
   }
-
+  hideLogInAlert()
+  {
+    if (this.logInStatus===true) {
+      Swal.fire({
+        title: 'Need to log in first',
+        icon: 'warning',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        this.router.navigate(['src/app/log-in']);
+      });
+      this.logInStatus=false;
+      this.sharedDataService.logInStatus=false;
+  
+    }
+        // this.router.navigate(['src/app/log-in'])
+  }
   
   public share()
   {

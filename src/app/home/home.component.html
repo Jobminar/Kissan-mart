@@ -14,10 +14,12 @@
     </div>
      <div>
            <div id="scearch">
-            <form>
-                <input type="text" [(ngModel)]="term" id="scearch-input">
+            <form >
+                <input type="text" [(ngModel)]="searchTerm" name="searchTerm" id="scearch-input"   
+                  (click)="navToScearch()">
                 <img src="assets\cil_search.png" id="scearch-logo">
             </form>
+            
          </div>
     </div>
     <div style="width: 100px;height: 3.75rem;">
@@ -54,13 +56,13 @@
                     <div class="name-product"><p class="name-Offer">{{offer.itemname}}</p></div>
                     <div class="price-containers">
                         <div class="price">
-                        RS.<div>{{offer.costPerUnit*offer.count}}</div>
+                            &#8377;<div>{{offer.costPerUnit*offer.count}}</div>
                         </div>
                     
-                        <div  class="button-container">
+                        <!-- <div  class="button-container">
                             <button type="submit" (click)="decreaseCount(offer)">-</button>
-                            <ng-container *ngIf=" offer.count <= 5; else elseBlock2">
-                            <span>{{offer.count }}kg</span>
+                            <ng-container *ngIf=" offer.count <= 5; else elseBlock2" class="item-count">
+                            <span >{{offer.count }}kg</span>
                             </ng-container>
                             <ng-template #elseBlock2>
                             <div class="alert-container" *ngIf="showAlerts">
@@ -75,8 +77,27 @@
                                 </div>
                             </ng-template>
                             <button type="submit" (click)="increaseCount(offer)" id="plusButton">+</button>
-                        </div>
-                        
+                        </div> -->
+                        <div class="button-container">
+                            <button type="submit" (click)="decreaseCount(offer)">-</button>
+                                 <ng-container *ngIf="offer.count <= 5; else elseBlock">
+                                    <span>{{ offer.count }}kg</span>
+                                  </ng-container>
+                                  <ng-template #elseBlock>
+                                    <div class="alert-container" *ngIf="showAlert">
+                                        <div class="alert-box">
+                                          <p>For orders bryond 5kgs</p>
+                                          <p>Please contact our store</p>
+                                          <div class="alert-button">
+                                              <button (click)="hideAlert(offer)">CALL NOW</button>
+                                              <button (click)="hideAlert(offer)">OK</button>
+                                        </div>
+                                        </div>
+                                      </div>
+                                  </ng-template>
+                                
+                            <button type="submit" (click)="increaseCount(offer)" id="plusButton">+</button>
+                          </div>
                     </div>
                     <button type="submit"  class="add-button"[style.background]="offer.button.buttonColor" (click)="toggleButtonState(offer)" (click)="share()" (click)="addingItems(offer)"> {{ offer.button.buttonText }} </button>
                 </div>
@@ -90,11 +111,11 @@
             <div *ngFor="let picks of quickPickUp" >
 
                 <div *ngIf="picks.name === 'quickPicks'">
-                <div class="slider" class="offer-tittle-con"><img [src]="picks.src">
+                <div class="slider" class="offer-tittle-con"><img [src]="picks.src" class="img">
                     <div class="offer-tittle"><pre>{{picks.discount}}%off </pre></div>
                 </div>
                 <div class="details">
-                    <div class="name-product">{{picks.ItemName}}</div>
+                    <div class="name-product">{{picks.itemname}}</div>
                     <div class="price-containers">
                         <div class="price">
                           RS. <!--<del>120</del>&nbsp; --> 
@@ -112,7 +133,7 @@
                                     <p>For orders bryond 5kgs</p>
                                     <p>Please contact our store</p>
                                     <div class="alert-button">
-                                        <button (click)="hideAlert(picks)">CALL NOW</button>
+                                        <button (click)="callToMart()">CALL NOW</button>
                                         <button (click)="hideAlert(picks)">OK</button>
                                 </div>
                                 </div>
@@ -129,8 +150,13 @@
         </div>
     </div>
     
+    <div *ngIf=logInStatus class="alert-logIn">
+        <span>need to log in first</span>
+        <button type="submit">ok</button>
+      </div>
+
 </div>
-<div ><img src="assets\fotter\Voice order.png"  class="voiccee" (click)="navToVoice()"/></div>
+<!-- <div ><img src="assets\fotter\Voice order.png"  class="voiccee" (click)="navToVoice()"/></div> -->
 <br>
 
 <app-fotter></app-fotter>

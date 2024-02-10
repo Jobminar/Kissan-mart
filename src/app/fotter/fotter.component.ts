@@ -1,4 +1,4 @@
-import { Component,Input ,OnInit} from '@angular/core';
+import { Component,Input ,OnInit,ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataTransferService } from '../data-transfer.service';
 
@@ -10,16 +10,26 @@ import { CartService } from '../cart.service';
   styleUrls: ['./fotter.component.css']
 })
 export class FotterComponent implements OnInit {
+    dumpyArray:any[]=[]
     ngOnInit(): void {
         this.countingCart()
+        this.dumpyArray = this.cart.cartResponse; // Assuming cartResponse is not an Observable
+
+        // Trigger change detection manually
+        this.cdr.detectChanges();
+    
+        console.log('no of items ', this.cart.cartResponse);
     }   
   constructor(
     private router: Router,
     private sharedDataService:DataTransferService,
-    private dataTrasnferService:DataTransferService,private cart:CartService,
+    private dataTrasnferService:DataTransferService,
+    private cart:CartService,
+    private cdr: ChangeDetectorRef
     )
    { 
-    
+    this.dumpyArray=this.cart.cartResponse
+  
    }
    itemsInCart:any
    countOfFruits:number=0
@@ -64,7 +74,7 @@ export class FotterComponent implements OnInit {
   }
   navtoNotification()
   {
-    this.router.navigate(['src/app/log-in'])
+    this.router.navigate(['src/app/policy'])
   }
   navToOrders()
   {

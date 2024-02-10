@@ -29,7 +29,10 @@ import { LeafyVegetablesComponent } from './leafy-vegetables/leafy-vegetables.co
 import { NgModule } from '@angular/core';
 import { OrderconfirmComponent } from './orderconfirm/orderconfirm.component';
 import { EditComponent } from './edit/edit.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { VoiceComponent } from './voice/voice.component';
+import { PolicyComponent } from './policy/policy.component';
+import { ScearchComponent } from './scearch/scearch.component';
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';,
 
 @NgModule({
@@ -57,7 +60,10 @@ import { VoiceComponent } from './voice/voice.component';
     LeafyVegetablesComponent,
     OrderconfirmComponent,
     EditComponent,
-    VoiceComponent
+    EditProfileComponent,
+    VoiceComponent,
+    PolicyComponent,
+    ScearchComponent
     // Ng2SearchPipeModule
   
   

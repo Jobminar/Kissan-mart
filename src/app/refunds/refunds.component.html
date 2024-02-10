@@ -11,7 +11,8 @@
     <div *ngFor="let refund of refunds">
         <div class="details">
             <div class="sub-container">
-                <div><p>{{refund.quantity}}-{{refund.name}}</p></div>
+                <div class="sub-container-image"><img [src]="refund.itemImage"></div>
+                <div><p>{{refund.quantity}}kg -{{refund.name}}</p></div>
                 <div>
                     <div *ngIf="refund.status==='completed'">
                         <p style="color:#09C43D">{{refund.status}}&nbsp;<img src="assets\my-cart\right.jpg" class="icons">&nbsp;</p>
@@ -21,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="sub-container">
+            <div class="sub-container" id="pays">
                 <div><p>to:{{refund.paymentMethod}}</p></div>
                 <div><h4>Rs.{{refund.price}}&nbsp;</h4></div>
             </div>

@@ -16,7 +16,7 @@ export class LogInComponent {
   password: any = "";
   loginForm: FormGroup;
   status: boolean = false;
-
+  isLoading: boolean = false;
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
@@ -39,7 +39,7 @@ export class LogInComponent {
 
   makeApiRequest() {
     const apiUrl = 'https://kisanmart.onrender.com/login';
-
+    this.isLoading = true;
     // Define the request body
     const requestBody = {
       phoneNumber: this.loginForm.value.phoneno,
@@ -58,14 +58,18 @@ export class LogInComponent {
         // Handle the API response here
         console.log('API Response:', response);
         this.handleLoginResponse(response);
+        // this.isLoading = false;
       },
       (error) => {
         // Handle errors
         console.error('API Error:', error);
+        this.status=true
+        console.log("false ",this.status)
       }
     );
   }
-
+  
+  logInStatus:boolean=false
   details() {
     console.log(this.phoneno);
     this.makeApiRequest();
@@ -74,12 +78,17 @@ export class LogInComponent {
   handleLoginResponse(response: any): void {
     if (response.message === 'Login successful') {
       // If login is successful, redirect to home and store user data in session storage
+      this.logInStatus=true;
+      this.status=false
       this.router.navigate(['']);
       this.sessionStorageService.set('userId', response.user);
       // this.sessionStorageService.set('username', response.username);
     } else {
       // Handle unsuccessful login (optional)
+      console.log("false ",this.status)
+      this.status=true
     }
+    console.log("login ", this.logInStatus)
   }
   navTosignUpMain()
   {

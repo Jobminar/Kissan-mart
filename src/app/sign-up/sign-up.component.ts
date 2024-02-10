@@ -3,6 +3,7 @@ import { DataTransferService } from '../data-transfer.service';
 import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { NavigationService } from '../navigation.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -12,14 +13,16 @@ export class SignUpComponent implements OnInit {
  
   ngOnInit(): void {
     console.log("resturn",this.pass.passwordShared,this.pass.phoneNo,this.pass.userName)
+    this.navigator.setupBackButtonListener();
   }
   passwordInput:any;
   FinalPassword:any;
   confirmPasword:any;
   constructor(private pass:DataTransferService,
-    private location:Location,
-    private http: HttpClient,
-    private router:Router)
+              private location:Location,
+              private http: HttpClient,
+              private router:Router,
+              private navigator:NavigationService)
   {
    
     this.passwordInput=this.pass.passwordShared;

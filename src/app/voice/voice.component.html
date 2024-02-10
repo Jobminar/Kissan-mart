@@ -5,18 +5,43 @@
     <div>  <h2 id="tittle">Voice</h2></div>
 </div>
 <div class="container">
-    
-    <div id="app">
+   <div class="sub-container"> 
+    <!-- <div id="app">
       
       <audio #audioPlayer controls></audio>
       <div id="status">{{ status }}</div>
-      <!-- <button (click)="startRecording()" [disabled]="startRecordDisabled">Start Recording</button>
+       <button (click)="startRecording()" [disabled]="startRecordDisabled">Start Recording</button>
       <button (click)="stopRecording()" [disabled]="stopRecordDisabled">Stop Recording</button>
-     -->
+     
      <div *ngIf="count%2===0;else elseBlock"><img src="assets\fotter\Voice order.png"  class="voiccee" (click)="record()"/></div>
-    </div>
-    <ng-template #elseBlock>
-        <img src="assets\home\stop.jpg"  class="voiccee" (click)="record()"/>
-    </ng-template>
-    <!-- <div><i class="fa fa-microphone" style="font-size:36px;color: green;" class="voiccee" (click)="record()"></i></div> -->
-  </div>
+   
+        <ng-template #elseBlock>
+            <img src="assets\home\stop.jpg"  class="voiccee" (click)="record()"/>
+        </ng-template>
+     <div><i class="fa fa-microphone" style="font-size:36px;color: green;" class="voiccee" (click)="record()"></i></div>
+    </div> -->
+    <div id="app">
+        <!-- <audio #audioPlayer controls></audio>
+        <div *ngFor="let audio of audioList">
+          <button (click)="playAudio(audio.audioData)">Play Audio</button>
+        </div> -->
+      
+        
+        <div *ngFor="let recording of recordings">
+
+          <ng-container *ngIf="recording !==undefined">
+            <audio [src]="recording" controls></audio>
+          </ng-container>
+        </div> 
+    
+        <div id="status">{{ status }}</div>
+        <div *ngIf="count % 2 === 0; else elseBlock">
+          <img src="assets\fotter\Voice order.png" class="voiccee" (click)="record()" />
+        </div>
+      
+        <ng-template #elseBlock>
+          <img src="assets\home\stop.jpg" class="voiccee" (click)="record()" />
+        </ng-template>
+      </div>
+   </div> 
+</div>

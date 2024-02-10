@@ -47,8 +47,8 @@
 {
     display: flex;
     justify-content: space-between;
-    margin-left: 1rem;
-    margin-left: 1 rem;
+    margin: 1rem;
+    
     margin-bottom: 0;
     padding: 0;
 }
@@ -74,6 +74,23 @@ hr{
 .sub-container span
 {
     color: #5a5454;
+   
+}
+.sub-container-image
+{
+    width: 3.2rem;
+    height: 2.8rem;
+   
+}
+.sub-container-image img{
+    height: 100%;
+    width: 100%;
+}
+#pays
+{
+   
+    margin: 0;
+    margin-left: 1rem;
 }
 .button
 {

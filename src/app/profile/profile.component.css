@@ -45,6 +45,13 @@
    /* width: 19.688rem; */
    /* border: 1rem solid black; */
 }
+.num
+{   
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    
+}
 .edit-ion
 {
     width: 1rem;

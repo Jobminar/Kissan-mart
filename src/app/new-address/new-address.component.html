@@ -7,11 +7,25 @@
     </div>
     <div>
         <form  #myForm="ngForm" (ngSubmit)="submitForm()">
-            <input type="text" placeholder="Tittle" id="tittle" name="tittle" [(ngModel)]="formData.tittle" required>
+            <label  id="zone-label">Please select one of our operational areas :</label>
+            <select class="Zones"  name="area" [(ngModel)]="formData.area"  required>
+                <option value="Mansurabad">Mansurabad</option>
+                <option value="L.B.Nagar">L.B.Nagar</option>
+                <option value="Gayathri Nagar">Gayathri Nagar</option>
+                <option value="Meerpet">Meerpet</option>
+                <option value="Almazguda">Almazguda</option>
+                <option value="Gurramguda">Gurramguda</option>
+                <option value="Vanasthalipuram">Vanasthalipuram</option>
+                <option value="B.N.Reddy">B.N.Reddy</option>
+                <option value="Hasthinapuram">Hasthinapuram</option>
+                <option value="Bhaghya Latha">Bhaghya Latha</option>
+              </select>
+            <input type="text" placeholder="Type" id="Type" name="Type" [(ngModel)]="formData.Type" required>
             <input type="text" placeholder="House_no" id="House_no" name="House_no" [(ngModel)]="formData.House_no" required>
-            <input type="text" placeholder="block" id="block" name="block" [(ngModel)]="formData.block" required>
-            <input type="text" placeholder="appartment" id="appartment" name="appartment" [(ngModel)]="formData.appartment" required>
+            <!-- <input type="text" placeholder="block" id="block" name="block" [(ngModel)]="formData.block" required> -->
+            <!-- <input type="text" placeholder="appartment" id="appartment" name="appartment" [(ngModel)]="formData.appartment" required> -->
             <input type="text" placeholder="address" id="address" name="address" [(ngModel)]="formData.address" required>
+           
             <input type="text" placeholder="city" id="city" name="city"  [(ngModel)]="formData.city" required>
             <input type="text" placeholder="state" id="state" name="state"  [(ngModel)]="formData.state" required>
             <input type="text" placeholder="country" id="country" name="country"  [(ngModel)]="formData.country" required>
@@ -19,7 +33,7 @@
             <button type="submit" (click)="sharingAddress()">Add</button>
         </form>
     </div>
-    <div *ngFor="let i of AddressStored">
+    <!-- <div *ngFor="let i of AddressStored">
         {{i.city}}
-    </div>
+    </div> -->
 </div>

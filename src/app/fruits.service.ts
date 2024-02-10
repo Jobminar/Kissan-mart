@@ -362,7 +362,10 @@ export class FruitsService {
   isRemoved: boolean = false;
 
   constructor(private http: HttpClient,private sanitizer: DomSanitizer) {
-    this.assigningToCat()
+    // this.assigningToCat()
+    if (this.categories.length===0) {
+      this.assigningToCat()
+    }
   }
 
   // Method to fetch data from the API
@@ -438,7 +441,7 @@ assigningToCat() {
 
       // Push individual elements using spread operator if not already present
       for (const product of dummyProducts) {
-        if (!category.products.includes(product)) {
+        if (!category.products.some((p: { productId: any; }) => p.productId === product.productId)) {
           category.products.push(product);
         }
       }
@@ -448,7 +451,7 @@ assigningToCat() {
     }
   }
 
-  console.log("this is pushed ", this.categories);
+  console.log("this is cat ", this.categories);
 }
 
 
